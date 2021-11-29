@@ -122,7 +122,7 @@ app.get("/jobs", async(req,res)=>{
           return res.status(500).json({message:e.message , status: "Failed"})
       }
 })
-/*
+
 // **************all the jobs in a particular city **************
 app.get("/jobs/city/:city", async(req,res)=>{
     try{
@@ -162,7 +162,7 @@ app.get("/jobs/:notice_period", async(req,res)=>{
     }
 })
 //*************all the job with notice period 2 month ************** 
-*/
+
 // ************* all the job sorted a per rating ****************
 app.get("/ratings", async(req,res)=>{
     try{
