@@ -8,7 +8,7 @@ const router = express.Router()
 
 
 // ****************** company CRUD *********** 
-router.post("/companys", async(req,res)=>{
+router.post("", async(req,res)=>{
     try{
        const company =await  Company.create(req.body)
        return res.status(201).send(company) 
@@ -19,7 +19,7 @@ router.post("/companys", async(req,res)=>{
     }
 })
 
-router.get("/companys", async(req,res)=>{
+router.get("", async(req,res)=>{
   try{
      const company = await Company.find().populate("job_id").lean().exec()
      return res.status(200).send({company})
@@ -28,7 +28,7 @@ router.get("/companys", async(req,res)=>{
         return res.status(500).json({message:e.message , status: "Failed"})
     }
 })
-router.get("/companys/:id", async(req,res)=>{
+router.get("/:id", async(req,res)=>{
     try{
     const company = await Company.findById(req.params.id).populate("job_id").lean().exec()
     return res.status(201).send({company})
@@ -37,7 +37,7 @@ router.get("/companys/:id", async(req,res)=>{
     }
 })
 
-router.delete("/companys/:id", async(req,res)=>{
+router.delete("/:id", async(req,res)=>{
     try{
         const company = await Company.findByIdAndDelete(req.params.id).lean().exec()
         return res.status(201).send(company)
